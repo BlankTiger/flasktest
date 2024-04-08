@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Let's go</title>
+</head>
+
+<body style="background-color: black;">
+    <h1 id="hi">some nice header</h1>
+    <input type="text" id="input">
+    </input>
+    <button onclick="sayHi()">Say Hi</button>
+    some nice body
+
+
+    <script>
+        function sayHi() {
+            let element = document.getElementById("hi");
+            let input = document.getElementById("input");
+            let txt = input.value;
+            let res = fetch(`http://127.0.0.1:5000/api/hi/${txt}`)
+                .then(res => res.text())
+                .then(res => element.innerHTML = res)
+        }
+    </script>
+</body>
+
+</html>
